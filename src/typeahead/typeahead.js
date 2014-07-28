@@ -128,7 +128,7 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.position', 'ui.bootstrap
                                 //Q&E FIX FOR AUTOSELECT based on https://github.com/angular-ui/bootstrap/issues/908#issuecomment-41289477
                                 matches.unshift(inputValue);
                                 //END OF: Q&E FIX FOR AUTOSELECT
-                                          
+
                                 //it might happen that several async queries were in progress if a user were typing fast
                                 //but we are interested only in responses that correspond to the current view value
                                 var onCurrentRequest = (inputValue === modelCtrl.$viewValue);
@@ -385,12 +385,12 @@ angular.module('ui.bootstrap.typeahead', ['ui.bootstrap.position', 'ui.bootstrap
         .filter('typeaheadHighlight', function() {
 
             function escapeRegexp(queryToEscape) {
-                if(queryToEscape)
-                return queryToEscape.replace(/([.?*+^$[\]\\(){}|-])/g, '\\$1');
+                if (queryToEscape)
+                    return queryToEscape.replace(/([.?*+^$[\]\\(){}|-])/g, '\\$1');
             }
 
             return function(matchItem, query) {
-                if(('' + matchItem))
-                return query ? ('' + matchItem).replace(new RegExp(escapeRegexp(query), 'gi'), '<strong>$&</strong>') : matchItem;
+                if (('' + matchItem))
+                    return query ? ('' + matchItem).replace(new RegExp(escapeRegexp(query), 'gi'), '<strong>$&</strong>') : matchItem;
             };
         });
